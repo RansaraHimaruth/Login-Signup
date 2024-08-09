@@ -16,12 +16,28 @@ GET http://localhost:5000/users
 
 ###
 //get user by id
-GET http://localhost:5000/users/69f3305a-58c5-4fcd-9ccc-97848acccb3c
+GET http://localhost:5000/users/26011a4c-5127-41d6-902d-6c61922dde6d
 
 ###
 //update user by id
-PATCH  http://localhost:5000/users/0f2234b3-59f2-4575-89d5-6f4b92f12155
+PATCH  http://localhost:5000/users/26011a4c-5127-41d6-902d-6c61922dde6d
+Content-Type: application/json
 
+{
+    "name": "John Doily",
+    "email": "john@gmail.com",
+    "password": "234567",
+    "confPassword": "234567",
+    "role": "user"
+}
+
+###
+//delete user by id
+DELETE http://localhost:5000/users/0f2234b3-59f2-4575-89d5-6f4b92f12155
+
+###
+//login
+POST http://localhost:5000/login
 Content-Type: application/json
 
 {
@@ -29,5 +45,5 @@ Content-Type: application/json
     "email": "john@gmail.com",
     "password": "123456",
     "confPassword": "123456",
-    "role": "user"
+    "role": "admin"
 }
