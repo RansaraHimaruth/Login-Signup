@@ -41,9 +41,6 @@ POST http://localhost:5000/login
 Content-Type: application/json
 
 {
-    "name": "John Doe",
     "email": "john@gmail.com",
-    "password": "123456",
-    "confPassword": "123456",
-    "role": "admin"
+    "password": "234567",
 }
