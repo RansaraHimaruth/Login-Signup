@@ -2,11 +2,11 @@ POST http://localhost:5000/users
 Content-Type: application/json
 
 {
-    "name": "John Doe",
-    "email": "john@gmail.com",
-    "password": "123456",
-    "confPassword": "123456",
-    "role": "admin"
+    "name": "Tony Stark",
+    "email": "tony@gmail.com",
+    "password": "246810",
+    "confPassword": "246810",
+    "role": "user"
 }
 
 ###
@@ -61,3 +61,36 @@ GET http://localhost:5000/me
 ###
 //logout
 DELETE http://localhost:5000/logout
+
+###
+//get products
+GET http://localhost:5000/products
+
+###
+//create product 
+POST http://localhost:5000/products
+Content-Type: application/json
+
+{
+    "name": "Product 3",
+    "price": 2000
+}
+
+###
+//get products by id
+GET http://localhost:5000/products/9cba4506-faca-4fec-93fd-b4bbdfe6123c
+
+
+###
+//update product 
+PATCH http://localhost:5000/products/9cba4506-faca-4fec-93fd-b4bbdfe6123c
+Content-Type: application/json
+
+{
+    "name": "Product 2 updated",
+    "price": 2000
+}
+
+###
+//delete product
+DELETE http://localhost:5000/products/42a9676a-b6cf-4ee0-b2a6-d781f5d9def8
