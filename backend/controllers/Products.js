@@ -31,7 +31,7 @@ export const getProducts = async (req, res) => {
     }
     res.status(200).json(response);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ msg: error.message });
   }
 };
 
@@ -49,7 +49,7 @@ export const getProductById = async (req, res) => {
       ],
     });
     if (!product) {
-      return res.status(404).json({ message: "Product not found" });
+      return res.status(404).json({ msg: "Product not found" });
     }
     let response;
     if (req.role === "admin") {
@@ -81,7 +81,7 @@ export const getProductById = async (req, res) => {
     }
     res.status(200).json(response);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ msg: error.message });
   }
 };
 
@@ -95,7 +95,7 @@ export const createProduct = async (req, res) => {
     });
     res.status(201).json({ msg: "Product created successfully" });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ msg: error.message });
   }
 };
 
@@ -113,7 +113,7 @@ export const updateProduct = async (req, res) => {
       ],
     });
     if (!product) {
-      return res.status(404).json({ message: "Product not found" });
+      return res.status(404).json({ msg: "Product not found" });
     }
     const { name, price } = req.body;
     if (req.role === "admin") {
@@ -127,7 +127,7 @@ export const updateProduct = async (req, res) => {
       );
     } else {
       if (req.userId !== product.userId) {
-        return res.status(403).json({ message: "Access Denied" });
+        return res.status(403).json({ msg: "Access Denied" });
       }
       await Product.update(
         { name, price },
@@ -138,9 +138,9 @@ export const updateProduct = async (req, res) => {
         }
       );
     }
-    res.status(200).json({ message: "Product updated successfully" });
+    res.status(200).json({ msg: "Product updated successfully" });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ msg: error.message });
   }
 };
 
@@ -158,7 +158,7 @@ export const deleteProduct = async (req, res) => {
       ],
     });
     if (!product) {
-      return res.status(404).json({ message: "Product not found" });
+      return res.status(404).json({ msg: "Product not found" });
     }
     const { name, price } = req.body;
     if (req.role === "admin") {
@@ -169,7 +169,7 @@ export const deleteProduct = async (req, res) => {
       });
     } else {
       if (req.userId !== product.userId) {
-        return res.status(403).json({ message: "Access Denied" });
+        return res.status(403).json({ msg: "Access Denied" });
       }
       await Product.destroy({
         where: {
@@ -177,8 +177,8 @@ export const deleteProduct = async (req, res) => {
         },
       });
     }
-    res.status(200).json({ message: "Product deleted successfully" });
+    res.status(200).json({ msg: "Product deleted successfully" });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ msg: error.message });
   }
 };
