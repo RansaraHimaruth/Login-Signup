@@ -14,8 +14,8 @@ const ProductList = () => {
     setProducts(response.data);
   };
 
-  const deleteProduct = async (productid) => {
-    await axios.delete(`http://localhost:5000/products/${productid}`);
+  const deleteProduct = async (productId) => {
+    await axios.delete(`http://localhost:5000/products/${productId}`);
     getProducts();
   };
 
