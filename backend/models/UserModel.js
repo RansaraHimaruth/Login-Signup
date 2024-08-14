@@ -8,16 +8,16 @@ const Users = db.define(
   {
     uuid: {
       type: DataTypes.STRING,
-      defaultValue: Sequelize.UUIDV4,
+      defaultValue: DataTypes.UUIDV4,
       allowNull: false,
-      valoidate: {
+      validate: {
         notEmpty: true,
       },
     },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-      valoidate: {
+      validate: {
         notEmpty: true,
         len: [3, 100],
       },
@@ -25,7 +25,7 @@ const Users = db.define(
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      valoidate: {
+      validate: {
         notEmpty: true,
         isEmail: true,
       },
@@ -33,14 +33,14 @@ const Users = db.define(
     password: {
       type: DataTypes.STRING,
       allowNull: false,
-      valoidate: {
+      validate: {
         notEmpty: true,
       },
     },
     role: {
       type: DataTypes.STRING,
       allowNull: false,
-      valoidate: {
+      validate: {
         notEmpty: true,
       },
     },

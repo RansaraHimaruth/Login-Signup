@@ -11,14 +11,14 @@ const Products = db.define(
       type: DataTypes.STRING,
       defaultValue: Sequelize.UUIDV4,
       allowNull: false,
-      valoidate: {
+      validate: {
         notEmpty: true,
       },
     },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-      valoidate: {
+      validate: {
         notEmpty: true,
         len: [3, 100],
       },
@@ -26,14 +26,14 @@ const Products = db.define(
     price: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      valoidate: {
+      validate: {
         notEmpty: true,
       },
     },
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      valoidate: {
+      validate: {
         notEmpty: true,
       },
     },
